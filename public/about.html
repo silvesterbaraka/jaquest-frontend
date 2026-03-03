@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us | JaQuest Scholarships Agency</title>
+
+<!-- Performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#0d47a1;
+  --blue-dark:#082567;
+  --white:#ffffff;
+  --wheat:#f5deb3;
+  --black:#0b0f19;
+  --border:#e5e7eb;
+}
+
+/* RESET */
+*,*::before,*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--white);
+  color:var(--black);
+  line-height:1.55;
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+header{
+  position:fixed;
+  inset:0 0 auto 0;
+  background:var(--blue);
+  z-index:1000;
+  box-shadow:0 3px 10px rgba(0,0,0,.12);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:clamp(16px,2.5vw,18px);
+  font-weight:800;
+  color:var(--white);
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+nav a{
+  color:var(--white);
+  font-size:13.5px;
+  font-weight:500;
+  text-decoration:none;
+}
+
+nav a:hover{color:var(--wheat)}
+
+.menu-btn{
+  display:none;
+  width:36px;
+  height:36px;
+  background:var(--white);
+  border-radius:6px;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+
+.menu-btn i{color:var(--blue);font-size:18px}
+
+/* MOBILE NAV */
+.mobile-nav{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:min(82%,340px);
+  height:100dvh;
+  background:var(--blue-dark);
+  padding:76px 20px;
+  transition:.3s ease;
+  z-index:2000;
+}
+
+.mobile-nav.active{right:0}
+
+.mobile-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:34px;
+  height:34px;
+  background:var(--white);
+  border-radius:6px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+
+.mobile-close i{color:var(--blue-dark)}
+
+.mobile-nav a{
+  display:block;
+  color:var(--white);
+  font-size:16px;
+  padding:10px 0;
+  text-decoration:none;
+}
+
+/* MAIN */
+main{
+  padding-top:92px;
+  padding-bottom:56px;
+}
+
+.container{
+  max-width:1120px;
+  margin:auto;
+  padding:0 16px;
+}
+
+/* HEADER */
+.page-head{
+  max-width:780px;
+  margin-bottom:28px;
+}
+
+.page-head h1{
+  font-size:clamp(24px,5vw,30px);
+  font-weight:800;
+  color:var(--blue);
+  margin-bottom:8px;
+}
+
+.page-head p{
+  font-size:14.5px;
+  color:#222;
+}
+
+/* SECTIONS */
+.section{
+  margin-bottom:32px;
+}
+
+.section h2{
+  font-size:clamp(18px,4vw,20px);
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.section p{
+  font-size:14px;
+  max-width:900px;
+  color:#333;
+}
+
+/* FRAMEWORK */
+.framework{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  margin-top:16px;
+}
+
+.card{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px;
+  background:#fff;
+  transition:.25s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 28px rgba(0,0,0,.07);
+}
+
+.card h3{
+  font-size:14.5px;
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.card p{
+  font-size:13.5px;
+  color:#444;
+}
+
+/* COMPACT CONTACT */
+.contact{
+  background:var(--blue);
+  color:var(--white);
+  border-radius:12px;
+  padding:18px 18px 16px;
+}
+
+.contact h3{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:14px;
+  letter-spacing:.3px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:10px 18px;
+}
+
+.contact-item{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  font-size:13px;
+  line-height:1.4;
+}
+
+.contact-item i{
+  font-size:13px;
+  color:var(--wheat);
+  margin-top:2px;
+  min-width:14px;
+}
+
+.contact-item strong{
+  font-weight:600;
+  font-size:12.8px;
+  display:block;
+  margin-bottom:2px;
+}
+
+.contact-item a{
+  color:var(--white);
+  text-decoration:none;
+}
+
+.contact-item a:hover{text-decoration:underline}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav ul{display:none}
+  .menu-btn{display:flex}
+}
+</style>
+</head>
+
+<body>
+
+<header data-aos="fade-down">
+  <div class="nav">
+    <div class="logo">JaQuest</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="affordability.html">Affordability</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+       <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <div class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-close" id="closeMenu">
+    <i class="fas fa-xmark"></i>
+  </div>
+  <a href="index.html">Home</a>
+  <a href="affordability.html">Affordability</a>
+  <a href="services.html">Services</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">About Us</a>
+</div>
+
+<main>
+<div class="container">
+
+<div class="page-head" data-aos="fade-up">
+  <h1>About JaQuest Scholarships Agency</h1>
+  <p>
+    JaQuest Scholarships Agency is an education-focused coordination and student-support institution
+    committed to ethical guidance, risk reduction, and student welfare in international education pathways.
+  </p>
+</div>
+
+<div class="section" data-aos="fade-up">
+  <h2>Institutional Mandate</h2>
+  <p>
+    JaQuest is not a recruitment agency and does not act as a decision-making authority.
+    Our mandate is advisory and coordinative — ensuring informed student engagement,
+    procedural clarity, and responsible institutional alignment.
+  </p>
+</div>
+
+<div class="section" data-aos="fade-up">
+  <h2>Student Protection & Coordination Framework</h2>
+  <div class="framework">
+    <div class="card"><h3>Context Assessment</h3><p>Academic readiness and expectation alignment.</p></div>
+    <div class="card"><h3>Risk Awareness</h3><p>Academic rigor and cultural realities.</p></div>
+    <div class="card"><h3>Procedural Guidance</h3><p>Documentation accuracy and timelines.</p></div>
+    <div class="card"><h3>Ethical Safeguards</h3><p>Transparent and non-exploitative practice.</p></div>
+    <div class="card"><h3>Mental Well-Being</h3><p>Stress awareness and early support.</p></div>
+    <div class="card"><h3>Institutional Respect</h3><p>Aligned collaboration with universities.</p></div>
+  </div>
+</div>
+
+<div class="contact" data-aos="fade-up">
+  <h3>Contact & Communication</h3>
+  <div class="contact-grid">
+
+    <div class="contact-item">
+      <i class="fas fa-location-dot"></i>
+      <div>
+        <strong>Office Location</strong>
+        <a href="https://www.google.com/maps/search/?api=1&query=Urban+Estate+Phase+II+Patiala" target="_blank">
+          Urban Estate Phase II, Patiala, Punjab
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <i class="fab fa-whatsapp"></i>
+      <div>
+        <strong>Phone / WhatsApp</strong>
+        <a href="https://wa.me/917986177217" target="_blank">+91 79861 77217</a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <i class="fas fa-envelope"></i>
+      <div>
+        <strong>General Inquiries</strong>
+        <a href="mailto:info@jaquest.org">info@jaquest.org</a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <i class="fas fa-envelope-open"></i>
+      <div>
+        <strong>Student Support</strong>
+        <a href="mailto:support@jaquest.org">support@jaquest.org</a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <i class="fas fa-globe"></i>
+      <div>
+        <strong>Website</strong>
+        <a href="https://www.jaquest.org" target="_blank">www.jaquest.org</a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <i class="fas fa-clock"></i>
+      <div>
+        <strong>Working Hours</strong>
+        Mon – Sat | 9:00 AM – 6:00 PM
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+</main>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  AOS.init({ duration:700, easing:'ease-out-cubic', once:true });
+
+  const mobileNav = document.getElementById('mobileNav');
+  const menuBtn = document.getElementById('menuBtn');
+  const closeBtn = document.getElementById('closeMenu');
+  const menuIcon = menuBtn.querySelector('i');
+
+  const openMenu = () => {
+    mobileNav.classList.add('active');
+    mobileNav.setAttribute('aria-hidden','false');
+    menuIcon.classList.replace('fa-bars','fa-xmark');
+  };
+
+  const closeMenu = () => {
+    mobileNav.classList.remove('active');
+    mobileNav.setAttribute('aria-hidden','true');
+    menuIcon.classList.replace('fa-xmark','fa-bars');
+  };
+
+  menuBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+
+  document.querySelectorAll('.mobile-nav a').forEach(link=>{
+    link.addEventListener('click', closeMenu);
+  });
+
+});
+</script>
+
+</body>
+</html>

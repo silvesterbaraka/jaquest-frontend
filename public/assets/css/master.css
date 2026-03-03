@@ -1,0 +1,340 @@
+
+/* =====================================================
+   GLOBAL BASE
+===================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   SAFE COLOR UTILITIES (Tailwind-safe)
+===================================================== */
+.text-jaquest-yellow {
+  color: #fbbf24;
+}
+
+/* =====================================================
+   TEXT EFFECTS
+===================================================== */
+.text-shadow-lg {
+  text-shadow: 2px 2px 5px rgba(0,0,0,.3);
+}
+
+.text-shadow-md {
+  text-shadow: 1px 1px 3px rgba(0,0,0,.2);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =====================================================
+   MOBILE MENU ANIMATION
+===================================================== */
+#mobile-menu:not(.hidden) {
+  animation: slideRight .4s ease-out both;
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+/* =====================================================
+   SAFE FADE OUT
+===================================================== */
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+
+.animate__fadeOut {
+  animation: fadeOut 1s forwards;
+}
+
+/* =====================================================
+   PARALLAX (GPU SAFE)
+===================================================== */
+.parallax,
+.video-parallax {
+  will-change: transform;
+  transition: transform .25s ease-out;
+}
+
+/* =====================================================
+   GLOBE ILLUSTRATION
+===================================================== */
+.globe-illustration {
+  will-change: transform;
+  animation: globeBounce 2.5s ease-in-out infinite;
+}
+
+@keyframes globeBounce {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-20px); }
+}
+
+/* =====================================================
+   SERVICE CARDS
+===================================================== */
+.service-card {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,.2);
+}
+
+.service-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #3b82f6;
+  font-weight: 600;
+  transition: color .3s ease;
+}
+
+.service-link:hover {
+  color: #06b6d4;
+}
+
+/* =====================================================
+   CUSTOM IMAGE SHAPE
+===================================================== */
+.rounded-custom {
+  border-radius: 100px 0 100px 0;
+}
+
+/* =====================================================
+   JAQUEST SECTION STRUCTURE
+===================================================== */
+.jaquest-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  justify-content: center;
+}
+
+.jaquest-left,
+.jaquest-right {
+  flex: 1 1 300px;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* =====================================================
+   IMAGE LAYOUT
+===================================================== */
+.jaquest-images {
+  display: flex;
+  gap: 1rem;
+}
+
+.jaquest-image {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.jaquest-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Play Button */
+.jaquest-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transition: transform .25s ease;
+}
+
+.jaquest-play:hover {
+  transform: translate(-50%,-50%) scale(1.1);
+}
+
+/* =====================================================
+   SUPPORT + CTA
+===================================================== */
+.jaquest-actions {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.jaquest-support {
+  background: #00a79d;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  height: 72px;
+  border-radius: 0 50px 50px 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.support-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: #00a79d;
+  display: grid;
+  place-items: center;
+}
+
+.start-journey-btn {
+  height: 72px;
+  padding: 0 2rem;
+  background: #4f46e5;
+  color: #fff;
+  border-radius: 9999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .25s ease;
+}
+
+.start-journey-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(79,70,229,.3);
+}
+
+/* =====================================================
+   STATS
+===================================================== */
+.jaquest-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.jaquest-stat {
+  min-width: 180px;
+  text-align: center;
+}
+
+.jaquest-stat .number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00a79d;
+}
+
+/* =====================================================
+   TESTIMONIALS – UPGRADED SYSTEM (PRO)
+===================================================== */
+.testimonial-card {
+  position: relative;
+  height: 100%;
+  padding-top: 3.5rem;
+  background: linear-gradient(180deg,#ffffff,#f9fafb);
+  border-radius: 1.75rem;
+  box-shadow: 0 20px 45px rgba(0,0,0,.08);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 35px 70px rgba(0,0,0,.14);
+}
+
+/* Avatar */
+.testimonial-avatar {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content */
+.testimonial-content {
+  padding: 2rem 1.75rem 2.25rem;
+  text-align: center;
+}
+
+.testimonial-content::before {
+  content: "“";
+  display: block;
+  font-size: 3rem;
+  line-height: 1;
+  color: #06b6d4;
+  opacity: .35;
+  margin-bottom: .5rem;
+}
+
+.testimonial-content p {
+  font-style: italic;
+  line-height: 1.65;
+  color: #444;
+  margin-bottom: 1.25rem;
+}
+
+.testimonial-content h4 {
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .03em;
+  color: #111;
+}
+
+.testimonial-content span {
+  font-size: .8rem;
+  color: #777;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+  .jaquest-images { flex-direction: column; }
+  .jaquest-actions { flex-direction: column; }
+  .jaquest-support,
+  .start-journey-btn { width: 100%; height: 64px; }
+  .jaquest-stats { flex-direction: column; gap: 1rem; }
+  .rounded-custom { border-radius: 24px; }
+}
+
+/* =====================================================
+   FORCE DESKTOP SIDE-BY-SIDE
+===================================================== */
+@media (min-width: 1024px) {
+  .jaquest-container { flex-wrap: nowrap; }
+  .jaquest-left,
+  .jaquest-right { flex: 0 0 48%; }
+}

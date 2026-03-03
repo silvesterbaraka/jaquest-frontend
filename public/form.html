@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Application Form - JaQuest</title>
+
+  <!-- Tailwind CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    .float-label input:focus ~ label,
+    .float-label input:not(:placeholder-shown) ~ label,
+    .float-label textarea:focus ~ label,
+    .float-label textarea:not(:placeholder-shown) ~ label {
+      transform: translateY(-1.5rem) scale(0.85);
+      color: #6366f1;
+    }
+
+    .float-label label {
+      transition: all 0.2s ease;
+      pointer-events: none;
+      position: absolute;
+      left: 0.75rem;
+      top: 0.75rem;
+      background-color: white;
+      padding: 0 0.25rem;
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      animation: fade-up 0.6s ease-out;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 pt-28 md:pt-32">
+
+<!-- ===============================
+     NAVBAR
+================================ -->
+<nav
+  class="fixed top-0 left-0 w-full bg-blue-600 text-white shadow-md z-50"
+  role="navigation"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-24">
+
+      <!-- Brand -->
+      <div class="flex items-center">
+        <img
+          src="jaquestlogo.jpg"
+          alt="JaQuest Logo"
+          class="h-14 w-14 rounded-full mr-3"
+          loading="lazy"
+        />
+        <span class="text-2xl font-bold">JaQuest</span>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex space-x-8 text-lg">
+        <a href="index.html" class="hover:text-yellow-300 transition">Home</a>
+        <a href="services.html" class="hover:text-yellow-300 transition">Our Services</a>
+        <a href="affordability.html" class="hover:text-yellow-300 transition">Affordability</a>
+        <a href="blog.html" class="hover:text-yellow-300 transition">News & Blog</a>
+        <a href="contact.html" class="hover:text-yellow-300 transition">About Us</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="menu-button"
+        type="button"
+        class="md:hidden p-2 rounded-lg bg-white text-blue-600 shadow"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </div>
+  </div>
+</nav>
+
+<!-- ===============================
+     MOBILE NAV (OFF-CANVAS)
+================================ -->
+<aside
+  id="mobile-menu"
+  class="fixed inset-0 z-50 hidden md:hidden"
+  aria-hidden="true"
+>
+
+  <!-- Backdrop -->
+  <div id="mobile-backdrop"
+     class="absolute inset-0 bg-black bg-opacity-50">
+</div>
+
+  <!-- Drawer -->
+  <div
+    id="mobile-drawer"
+   class="absolute top-0 left-0 h-full w-4/5 max-w-sm
+           bg-white shadow-2xl
+           -translate-x-full
+           transition-transform duration-300 ease-out"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Mobile navigation"
+  >
+
+    <!-- Drawer Header -->
+    <div class="flex items-center justify-between px-6 py-5 border-b">
+      <div class="flex items-center gap-3">
+        <img
+          src="jaquestlogo.jpg"
+          alt="JaQuest logo"
+          class="w-10 h-10 rounded-full"
+        />
+        <span class="font-bold text-lg text-blue-700">
+          JaQuest
+        </span>
+      </div>
+
+      <button
+        id="close-menu"
+        type="button"
+        class="p-2 rounded-full text-gray-700 hover:bg-gray-100"
+        aria-label="Close menu"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Links -->
+    <nav class="flex flex-col px-6 py-6 space-y-2 text-base font-medium">
+      <a href="index.html" class="px-4 py-3 rounded-lg hover:bg-blue-50">Home</a>
+      <a href="services.html" class="px-4 py-3 rounded-lg hover:bg-blue-50">Our Services</a>
+      <a href="affordability.html" class="px-4 py-3 rounded-lg hover:bg-blue-50">Affordability</a>
+      <a href="blog.html" class="px-4 py-3 rounded-lg hover:bg-blue-50">News & Blog</a>
+      <a href="contact.html" class="px-4 py-3 rounded-lg hover:bg-blue-50">About Us</a>
+    </nav>
+
+  </div>
+</aside>
+<!-- ===============================
+     FORM CONTAINER (COMPACT & RESPONSIVE)
+================================ -->
+<section
+  class="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl fade-up
+         px-4 sm:px-6 md:px-8 py-8
+         scroll-mt-32"
+>
+
+  <!-- Header -->
+  <header class="text-center mb-8">
+    <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-2">
+      Fill And Submit Your Application
+    </h1>
+
+    <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
+      Submit your application for scholarships, admissions, visas, or consultation.
+      Ensure all details and documents are accurate.
+    </p>
+  </header>
+
+ <!-- FORM -->
+<form
+  id="applicationForm"
+  action="https://your-backend-url/api/apply"
+  method="POST"
+  enctype="multipart/form-data"
+  class="space-y-10"
+>
+    <!-- ================= PERSONAL INFO ================= -->
+    <fieldset class="space-y-4">
+      <legend class="text-lg font-semibold text-indigo-600 border-b pb-1">
+        Personal Information
+      </legend>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="relative float-label">
+          <input id="student_name" name="student_name" required placeholder=" "
+            class="w-full border px-4 py-2.5 rounded-md focus:ring-2 focus:ring-indigo-500"/>
+          <label for="student_name">Student's Name</label>
+        </div>
+
+        <div class="relative float-label">
+          <input id="email" type="email" name="email" required placeholder=" "
+            class="w-full border px-4 py-2.5 rounded-md focus:ring-2 focus:ring-indigo-500"/>
+          <label for="email">Email Address</label>
+        </div>
+
+        <div class="relative float-label">
+          <input id="dob" type="date" name="dob" required
+            class="w-full border px-4 py-2.5 rounded-md focus:ring-2 focus:ring-indigo-500"/>
+          <label for="dob">Date of Birth</label>
+        </div>
+
+        <div class="relative float-label">
+          <input id="country" name="country" required placeholder=" "
+            class="w-full border px-4 py-2.5 rounded-md focus:ring-2 focus:ring-indigo-500"/>
+          <label for="country">Country</label>
+        </div>
+
+        <div class="relative float-label">
+          <input id="phone" name="phone" type="tel" required placeholder=" "
+            class="w-full border px-4 py-2.5 rounded-md focus:ring-2 focus:ring-indigo-500"/>
+          <label for="phone">Phone Number</label>
+        </div>
+
+        <div class="relative float-label">
+          <input id="alt_phone" name="alt_phone" type="tel" placeholder=" "
+            class="w-full border px-4 py-2.5 rounded-md focus:ring-2 focus:ring-indigo-500"/>
+          <label for="alt_phone">Alternative Phone (Optional)</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- ================= PARENT INFO ================= -->
+    <fieldset class="space-y-4">
+      <legend class="text-lg font-semibold text-indigo-600 border-b pb-1">
+        Parent / Guardian Details
+      </legend>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="relative float-label">
+          <input id="parent_name" name="parent_name" required placeholder=" "
+            class="w-full border px-4 py-2.5 rounded-md focus:ring-2 focus:ring-indigo-500"/>
+          <label for="parent_name">Parent's Name</label>
+        </div>
+
+        <div class="relative float-label">
+          <input id="parent_contact" name="parent_contact" required placeholder=" "
+            class="w-full border px-4 py-2.5 rounded-md focus:ring-2 focus:ring-indigo-500"/>
+          <label for="parent_contact">Parent's Contact</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- ================= ACADEMIC ================= -->
+    <fieldset class="space-y-4">
+      <legend class="text-lg font-semibold text-indigo-600 border-b pb-1">
+        Academic Info & Referral
+      </legend>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="relative float-label">
+          <input id="referred_by" name="referred_by" placeholder=" "
+            class="w-full border px-4 py-2.5 rounded-md focus:ring-2 focus:ring-indigo-500"/>
+          <label for="referred_by">Referred By</label>
+        </div>
+
+        <!-- Reduced Message Box -->
+        <div class="relative float-label sm:col-span-2">
+          <textarea
+            id="message"
+            name="message"
+            rows="2"
+            placeholder=" "
+            class="w-full border px-4 py-2 rounded-md
+                   focus:ring-2 focus:ring-indigo-500 resize-none"
+          ></textarea>
+          <label for="message">Message</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- ================= UPLOADS ================= -->
+    <fieldset class="space-y-4">
+      <legend class="text-lg font-semibold text-indigo-600 border-b pb-1">
+        Document Uploads
+      </legend>
+
+      <!-- Vertical on small | Horizontal on large -->
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-6">
+        <div>
+          <label class="block text-sm font-medium mb-1">
+            Passport Copy <span class="text-red-500">*</span>
+          </label>
+          <input type="file" name="passport" required accept=".pdf,.jpg,.png"
+            class="w-full"/>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">
+            Academic Transcripts <span class="text-red-500">*</span>
+          </label>
+          <input type="file" name="transcripts" required accept=".pdf,.jpg,.png"
+            class="w-full"/>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">
+            Other Documents (Optional)
+          </label>
+          <input type="file" name="other_documents" accept=".pdf,.jpg,.png"
+            class="w-full"/>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- ================= SUBMIT ================= -->
+    <div class="text-center pt-4">
+      <button
+        type="submit"
+        class="inline-flex items-center gap-2
+               bg-indigo-600 text-white
+               px-8 py-3 rounded-xl
+               text-lg font-semibold
+               hover:bg-indigo-700 transition
+               shadow-md"
+      >
+        <i class="ph ph-paper-plane-tilt"></i>
+        Submit Application
+      </button>
+
+      <div id="formStatus" class="mt-3 text-sm"></div>
+    </div>
+
+  </form>
+</section>
+<!-- ===============================
+     MASTER SCRIPT
+================================ -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ===============================
+   ENHANCED NAVBAR TOGGLE
+================================ */
+const menuBtn = document.getElementById("menu-button");
+const closeBtn = document.getElementById("close-menu");
+const mobileMenu = document.getElementById("mobile-menu");
+const drawer = document.getElementById("mobile-drawer");
+const backdrop = document.getElementById("mobile-backdrop");
+
+if (menuBtn && mobileMenu && drawer) {
+
+  const openMenu = () => {
+    mobileMenu.classList.remove("hidden");
+
+    // Allow rendering before animation
+    requestAnimationFrame(() => {
+      drawer.classList.remove("-translate-x-full");
+    });
+
+    menuBtn.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeMenu = () => {
+    drawer.classList.add("-translate-x-full");
+
+    // Wait for animation to finish before hiding
+    setTimeout(() => {
+      mobileMenu.classList.add("hidden");
+    }, 300);
+
+    menuBtn.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  };
+
+ if (menuBtn) menuBtn.addEventListener("click", openMenu);
+if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+if (backdrop) backdrop.addEventListener("click", closeMenu);
+
+  // Close on ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !mobileMenu.classList.contains("hidden")) {
+      closeMenu();
+    }
+  });
+
+  // Close when clicking any link inside drawer
+  drawer.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+}
+
+  /* FORM SUBMIT */
+  const form = document.getElementById("applicationForm");
+  const statusEl = document.getElementById("formStatus");
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    statusEl.textContent = "Submitting…";
+    statusEl.className = "text-indigo-600";
+
+    for (const file of form.querySelectorAll('input[type="file"]')) {
+      if (file.files[0]?.size > 5 * 1024 * 1024) {
+        statusEl.textContent = "Each file must be under 5MB.";
+        statusEl.className = "text-red-600";
+        return;
+      }
+    }
+
+    try {
+      const res = await fetch("https://your-backend-url/api/apply", {
+        method: "POST",
+        body: new FormData(form)
+      });
+
+      if (!res.ok) throw new Error();
+      statusEl.textContent = "Application submitted successfully!";
+      statusEl.className = "text-green-600";
+      form.reset();
+    } catch {
+      statusEl.textContent = "Submission failed. Please try again.";
+      statusEl.className = "text-red-600";
+    }
+  });
+
+});
+</script>
+</body>
+</html>
+
+

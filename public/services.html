@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | JaQuest Scholarships</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (UNIFIED – NO DESIGN CHANGE) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      padding-top: 96px; /* matches h-24 navbar */
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    /* Active nav (FIXED – no duplicates) */
+    .nav-active {
+      position: relative;
+      color: #93c5fd !important;
+    }
+    .nav-active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: #93c5fd;
+    }
+
+    /* Service card */
+    .service-card {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.9rem;
+      padding: 1.4rem;
+      transition: all 0.28s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.07);
+      border-color: #bae6fd;
+    }
+
+    /* Mobile menu animation */
+    .slide-in { animation: slideIn 0.35s ease forwards; }
+    .slide-out { animation: slideOut 0.35s ease forwards; }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+    @keyframes slideOut {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed top-0 left-0 w-full bg-blue-900 shadow-md z-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between h-24">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center">
+        <img src="assets/images/jaquestlogo.jpg" class="h-12 w-12 rounded-full mr-3" alt="JaQuest Logo" />
+        <span class="text-xl font-bold text-white">JaQuest Scholarships</span>
+      </a>
+
+      <!-- Desktop -->
+      <div class="hidden lg:flex space-x-8 text-white font-medium">
+        <a href="index.html" class="hover:text-blue-200">Home</a>
+        <a href="services.html" class="nav-active">Services</a>
+        <a href="affordability.html" class="hover:text-blue-200">Affordability</a>
+        <a href="blog.html" class="hover:text-blue-200">News & Blog</a>
+        <a href="contact.html" class="hover:text-blue-200">Contact</a>
+      </div>
+
+      <!-- Toggle -->
+      <button id="menu-btn" class="lg:hidden bg-white text-blue-900 rounded-lg p-2 shadow-md" aria-label="Open menu">
+        ☰
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+       class="hidden fixed top-0 left-0 w-4/5 max-w-sm h-full bg-white shadow-2xl z-50">
+
+    <div class="flex justify-between items-center p-6 border-b">
+      <span class="font-semibold text-sky-600 text-lg">Menu</span>
+      <button id="close-btn" class="text-3xl text-gray-700" aria-label="Close menu">&times;</button>
+    </div>
+
+    <nav class="flex flex-col p-6 space-y-4 font-medium text-gray-800">
+      <a href="index.html">Home</a>
+      <a href="services.html" class="text-sky-600 font-semibold">Services</a>
+      <a href="affordability.html">Affordability</a>
+      <a href="blog.html">News & Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</nav>
+
+<!-- ================= SERVICES ================= -->
+<main class="bg-white">
+
+  <section class="max-w-7xl mx-auto px-6 pt-14 pb-8">
+    <h2 class="text-3xl font-bold text-gray-900" data-aos="fade-up">
+      Our Core Services
+    </h2>
+    <div class="mt-3 w-16 h-1 bg-sky-500"></div>
+    <p class="mt-4 text-gray-600 max-w-3xl" data-aos="fade-up" data-aos-delay="100">
+      Structured, ethical, and risk-aware coordination services supporting
+      international education pathways.
+    </p>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-6 pb-20 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div class="service-card" data-aos="fade-up">
+      <h3 class="font-semibold text-lg mb-2">Structured Student Engagement & Assessment</h3>
+      <p class="text-gray-600 text-sm">Early academic and contextual evaluation.</p>
+    </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+      <h3 class="font-semibold text-lg mb-2">Risk-Aware Admission Guidance</h3>
+      <p class="text-gray-600 text-sm">Institutional and academic suitability guidance.</p>
+    </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="font-semibold text-lg mb-2">Scholarship & Financial Alignment</h3>
+      <p class="text-gray-600 text-sm">Transparent scholarship and funding support.</p>
+    </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+      <h3 class="font-semibold text-lg mb-2">Procedural Coordination Support</h3>
+      <p class="text-gray-600 text-sm">Documentation and timeline coordination.</p>
+    </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+      <h3 class="font-semibold text-lg mb-2">Academic & Psychosocial Preparedness</h3>
+      <p class="text-gray-600 text-sm">Preparation for academic and cultural adjustment.</p>
+    </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+      <h3 class="font-semibold text-lg mb-2">Ethical Safeguards & Transition Support</h3>
+      <p class="text-gray-600 text-sm">Student welfare and ethical coordination.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER (UNCHANGED) ================= -->
+<footer class="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-gray-200 pt-16">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-blue-700">
+
+      <div>
+        <a href="index.html" class="flex items-center gap-3 mb-4">
+          <img src="assets/images/jaquestlogo.jpg" class="w-12 h-12 rounded-full" alt="JaQuest Logo">
+          <h3 class="text-2xl font-bold text-white">JaQuest</h3>
+        </a>
+        <p class="text-sm text-gray-300">
+          Structured, ethical international education coordination.
+        </p>
+      </div>
+
+      <nav>
+        <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
+          <li><a href="services.html" class="hover:text-yellow-400">Services</a></li>
+          <li><a href="blog.html" class="hover:text-yellow-400">Blog</a></li>
+          <li><a href="contact.html" class="hover:text-yellow-400">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-4">What We Do</h4>
+        <ul class="space-y-2 text-sm">
+          <li>Student Assessment</li>
+          <li>Admission Guidance</li>
+          <li>Scholarships</li>
+          <li>Procedural Support</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="tel:+917986177217" class="hover:text-yellow-400">+91 79861 77217</a></li>
+          <li><a href="mailto:info@jaquest.org" class="hover:text-yellow-400">info@jaquest.org</a></li>
+          <li>India • Africa • Global</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="py-6 text-center text-sm text-gray-400">
+      © <span id="year"></span> JaQuest Scholarship Agency. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  AOS.init({ duration: 900, easing: "ease-in-out", once: true });
+  lucide.createIcons();
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const menuBtn = document.getElementById("menu-btn");
+  const closeBtn = document.getElementById("close-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  menuBtn.onclick = () => {
+    menu.classList.remove("hidden","slide-out");
+    menu.classList.add("slide-in");
+  };
+
+  closeBtn.onclick = () => {
+    menu.classList.remove("slide-in");
+    menu.classList.add("slide-out");
+    setTimeout(() => menu.classList.add("hidden"), 300);
+  };
+</script>
+
+</body>
+</html>

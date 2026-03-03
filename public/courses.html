@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JaQuest Academic Courses Handbook</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="coursebook.css">
+<link rel="stylesheet" href="coursestyle.css">
+</head>
+
+<body>
+
+<header class="book-header">
+  <h1>JaQuest Academic Courses</h1>
+  <p>Official University Programs & Degree Structures</p>
+</header>
+
+<main class="book-container">
+
+  <!-- ================= ENGINEERING ================= -->
+  <section class="chapter">
+    <h2>Engineering & Technology</h2>
+
+    <article class="course">
+      <h3>Computer Science Engineering</h3>
+      <p class="meta">Duration: 4 Years · Eligibility: 10+2 with Mathematics</p>
+
+      <ul>
+        <li>Data Structures & Algorithms</li>
+        <li>Operating Systems</li>
+        <li>Database Management Systems</li>
+        <li>Artificial Intelligence & Machine Learning</li>
+        <li>Cybersecurity & Cloud Computing</li>
+      </ul>
+    </article>
+
+    <article class="course">
+      <h3>Mechanical Engineering</h3>
+      <p class="meta">Duration: 4 Years · Eligibility: 10+2 (PCM)</p>
+
+      <ul>
+        <li>Engineering Mechanics</li>
+        <li>Thermodynamics</li>
+        <li>Manufacturing Processes</li>
+        <li>Robotics & Automation</li>
+        <li>Machine Design</li>
+      </ul>
+    </article>
+
+    <article class="course">
+      <h3>Civil Engineering</h3>
+      <p class="meta">Duration: 4 Years · Eligibility: 10+2 (PCM)</p>
+
+      <ul>
+        <li>Structural Engineering</li>
+        <li>Geotechnical Engineering</li>
+        <li>Transportation Engineering</li>
+        <li>Environmental Engineering</li>
+        <li>Construction Management</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ================= MEDICAL ================= -->
+  <section class="chapter">
+    <h2>Health & Medical Sciences</h2>
+
+    <article class="course">
+      <h3>Nursing (BSc)</h3>
+      <p class="meta">Duration: 4 Years · Eligibility: PCB</p>
+
+      <ul>
+        <li>Medical-Surgical Nursing</li>
+        <li>Community Health Nursing</li>
+        <li>Mental Health Nursing</li>
+        <li>Pediatric & Emergency Care</li>
+      </ul>
+    </article>
+
+    <article class="course">
+      <h3>Medical Laboratory Technology</h3>
+      <p class="meta">Duration: 3 Years · Eligibility: PCB</p>
+
+      <ul>
+        <li>Clinical Biochemistry</li>
+        <li>Microbiology & Pathology</li>
+        <li>Hematology</li>
+        <li>Diagnostic Techniques</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ================= BUSINESS ================= -->
+  <section class="chapter">
+    <h2>Business & Management</h2>
+
+    <article class="course">
+      <h3>MBA – Business Administration</h3>
+      <p class="meta">Duration: 2 Years · Eligibility: Bachelor Degree</p>
+
+      <ul>
+        <li>Marketing Management</li>
+        <li>Financial Management</li>
+        <li>Human Resource Management</li>
+        <li>Operations & Strategy</li>
+      </ul>
+    </article>
+
+    <article class="course">
+      <h3>Accounting & Finance</h3>
+      <p class="meta">Duration: 3 Years · Eligibility: 10+2 Commerce / Arts</p>
+
+      <ul>
+        <li>Financial Accounting</li>
+        <li>Cost & Management Accounting</li>
+        <li>Auditing & Taxation</li>
+        <li>Corporate Finance</li>
+      </ul>
+    </article>
+  </section>
+
+</main>
+
+<footer class="book-footer">
+  <p>© JaQuest Academic Handbook · All Programs Subject to University Regulations</p>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const leftPage  = document.querySelector(".page.left");
+  const rightPage = document.querySelector(".page.right");
+
+  let index = 0;
+
+  /* ================= PAGE DATA ================= */
+  const pages = [
+    {
+      title: "Engineering & Technology",
+      content: `
+        <h4>Computer Science Engineering</h4>
+        <p class="meta">4 Years · 10+2 with Mathematics</p>
+        <ul>
+          <li>DSA, OS, DBMS</li>
+          <li>AI & Machine Learning</li>
+          <li>Cybersecurity</li>
+        </ul>
+      `
+    },
+    {
+      title: "Mechanical Engineering",
+      content: `
+        <p class="meta">4 Years · 10+2 (PCM)</p>
+        <ul>
+          <li>Thermodynamics</li>
+          <li>Manufacturing</li>
+          <li>Robotics</li>
+        </ul>
+      `
+    },
+    {
+      title: "Health & Medical Sciences",
+      content: `
+        <h4>Nursing (BSc)</h4>
+        <p class="meta">4 Years · PCB</p>
+        <ul>
+          <li>Clinical Nursing</li>
+          <li>Community Health</li>
+        </ul>
+      `
+    },
+    {
+      title: "Business & Management",
+      content: `
+        <h4>MBA</h4>
+        <p class="meta">2 Years · Bachelor Degree</p>
+        <ul>
+          <li>Marketing</li>
+          <li>Finance</li>
+          <li>HR</li>
+        </ul>
+      `
+    }
+  ];
+
+  /* ================= RENDER ================= */
+  function render() {
+    leftPage.innerHTML = `
+      <div class="page-content">
+        <h3>${pages[index]?.title || ""}</h3>
+        ${pages[index]?.content || ""}
+      </div>
+      <div class="page-footer">${index + 1}</div>
+    `;
+
+    rightPage.innerHTML = `
+      <div class="page-content">
+        <h3>${pages[index + 1]?.title || ""}</h3>
+        ${pages[index + 1]?.content || ""}
+      </div>
+      <div class="page-footer">${index + 2}</div>
+    `;
+  }
+
+  /* ================= CONTROLS ================= */
+  window.next = () => {
+    if (index + 2 < pages.length) {
+      rightPage.classList.add("flip-right");
+      setTimeout(() => {
+        index += 2;
+        rightPage.classList.remove("flip-right");
+        render();
+      }, 600);
+    }
+  };
+
+  window.prev = () => {
+    if (index - 2 >= 0) {
+      leftPage.classList.add("flip-left");
+      setTimeout(() => {
+        index -= 2;
+        leftPage.classList.remove("flip-left");
+        render();
+      }, 600);
+    }
+  };
+
+  render();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* =====================================================
+   JAQUEST ACADEMIC COURSEBOOK
+   Architectural / Textbook Layout
+===================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #e5e7eb;
+  color: #020617;
+}
+
+/* ================= HEADER ================= */
+.book-header {
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+
+.book-header h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.book-header p {
+  margin-top: 10px;
+  opacity: 0.75;
+}
+
+/* ================= BOOK CONTAINER ================= */
+.book-container {
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  padding: 70px 80px;
+  box-shadow: 0 40px 80px rgba(0,0,0,.15);
+}
+
+/* ================= CHAPTER ================= */
+.chapter {
+  margin-bottom: 70px;
+}
+
+.chapter h2 {
+  font-size: 1.9rem;
+  color: #1e40af;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+/* ================= COURSE ================= */
+.course {
+  margin-bottom: 40px;
+}
+
+.course h3 {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+.meta {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 10px;
+}
+
+.course ul {
+  padding-left: 22px;
+}
+
+.course li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ================= FOOTER ================= */
+.book-footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .book-container {
+    padding: 40px 26px;
+  }
+}
